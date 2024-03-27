@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StudentProvider } from "./components/UserContext";
-import ExampleComponent from "./components/ExampleComponent";
-import DataContext from "./components/DataContext";
+import ExampleComponent from "./components/StudentList";
+import DataContext from "./components/Studentadd";
 
 function App() {
   const [name, setName] = useState("John");

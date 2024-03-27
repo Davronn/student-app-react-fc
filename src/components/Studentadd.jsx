@@ -1,9 +1,9 @@
 import React from 'react'
 
-function DataContext() {
+function StudentApp() {
   return (
     <div>DataContext</div>
   )
 }
 
-export default DataContext
+export default StudentApp
