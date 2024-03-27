@@ -43,10 +43,13 @@ function StudentList() {
     try {
       await axios.delete(`http://localhost:3000/students/${studentId}`);
       dispatch({ type: "DELETE_STUDENT", payload: studentId });
+      fetchData();
     } catch (error) {
       console.error("Error deleting student:", error.message);
     }
   };
+
+
 
   return (
     <div className="container">
@@ -63,18 +66,18 @@ function StudentList() {
           </tr>
         </thead>
         <tbody>
-          {state.data.map((student) => (
+          {state.data.map((student, i) => (
             <tr key={student.id}>
-              <th scope="row">{student.id}</th>
+              <th scope="row">{i + 1}</th>
               <td>{student.firstName}</td>
               <td>{student.lastName}</td>
               <td>{student.group}</td>
               <td>
-                <button className="btn btn-outline-info mx-1">Edit</button>
+                <button className="btn btn-outline-info mx-1" >Edit</button>
                 <button
                   className="btn btn-outline-danger"
-                  onClick={() => handleDelete(student.id)}
-                >
+                  onClick={() => handleDelete(student.id)} >
+                  
                   Delete
                 </button>
               </td>
