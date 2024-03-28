@@ -1,10 +1,10 @@
 {
   "students": [
     {
-      "id": "1",
       "firstName": "Jhon",
       "lastName": "Doe",
-      "group": 25
+      "group": "25",
+      "id": "1"
     },
     {
       "id": "2",
@@ -13,10 +13,10 @@
       "group": 26
     },
     {
-      "id": "3",
       "firstName": "Brad",
       "lastName": "Maccalistor ",
-      "group": 27
+      "group": 27,
+      "id": "3"
     }
   ]
 }
