@@ -3,6 +3,7 @@ import { StudentContext } from "./UserContext";
 import axios from "axios";
 import "./StudentList.css";
 import ReactPaginate from "react-paginate";
+import UniversalButton from "./UniversalButton";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -149,18 +150,18 @@ function StudentList() {
               <td>{student.lastName}</td>
               <td>{student.group}</td>
               <td>
-                <button
-                  className="btn btn-outline-info mx-1"
+                <UniversalButton
+                  className="mx-1"
                   onClick={() => openEditModal(student)}
                 >
                   Edit
-                </button>
-                <button
-                  className="btn btn-outline-danger"
+                </UniversalButton>
+                <UniversalButton 
+                  variant="delete"  
                   onClick={() => handleDelete(student.id)}
                 >
                   Delete
-                </button>
+                </UniversalButton>
               </td>
             </tr>
           ))}

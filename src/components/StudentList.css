@@ -17,13 +17,16 @@
 }
 .active {
   color:rgb(255, 255, 255);
+  background-color: #0d6efd;
+  padding: 10px 0px;
+  border-radius: 10px;
 }
 a {
   text-decoration: none;
   color: rgb(255, 255, 255);
   padding: 10px 15px;
   border-radius: 10px;
-  background-color: #0d6efd;
+  border: 1px solid #0d6efd;
 }
 ul {
   padding: 20px;

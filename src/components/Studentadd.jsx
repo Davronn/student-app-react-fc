@@ -1,6 +1,7 @@
   import React, { useState, useEffect } from "react";
   import axios from "axios";
   import Modal from "react-modal";
+import UniversalButton from "./UniversalButton";
 
   const initialState = {
     firstName: "",
@@ -64,7 +65,7 @@
 
     return (
       <div className="container">
-        <button onClick={openModal} className="btn btn-primary mb-3">Add Student</button>
+        <UniversalButton variant="add" onClick={openModal} className=" mb-3">Add Student</UniversalButton>
         <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
           <h2>Add Student</h2>
           {state.error && <div>Error: {state.error}</div>}
