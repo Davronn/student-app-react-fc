@@ -3,7 +3,8 @@ import { StudentContext } from "./UserContext";
 import axios from "axios";
 import "./StudentList.css";
 import ReactPaginate from "react-paginate";
-import UniversalButton from "./UniversalButton";
+import UniversalButton from "./StudentListStyled";
+import Edit from "./EditStyled";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -232,21 +233,21 @@ function StudentList() {
               </form>
             </div>
             <div className="modal-footer">
-              <button
+              <Edit
                 type="button"
-                className="btn btn-secondary"
+                variant="cancle"
                 data-dismiss="modal"
+                className="mx-1"
                 onClick={() => close()}
               >
                 Close
-              </button>
-              <button
+              </Edit>
+              <Edit
                 type="button"
-                className="btn btn-primary"
                 onClick={handleEdit}
               >
                 Save changes
-              </button>
+              </Edit>
             </div>
           </div>
         </div>
