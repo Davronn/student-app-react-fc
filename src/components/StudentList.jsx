@@ -36,7 +36,7 @@ function StudentList() {
 
 
   const [currentPage, setCurrentPage] = useState(0);
-  const [itemsPerPage] = useState(5);
+  const [itemsPerPage] = useState(6);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -168,14 +168,14 @@ function StudentList() {
       </table>
 
       <ReactPaginate
-        previousLabel={"Previous"}
-        nextLabel={"Next"}
+        previousLabel={"<"}
+        nextLabel={">"}
         breakLabel={"..."}
         breakClassName={"break-me"}
         pageCount={pageCount}
         marginPagesDisplayed={2}
         pageRangeDisplayed={5}
-        onPageChange={handlePageClick}
+        onPageChange={handlePageClick}  
         containerClassName={"pagination"}
         activeClassName={"active"}
       />

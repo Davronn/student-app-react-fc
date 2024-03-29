@@ -1,7 +1,4 @@
-
-
 .modall {
-  
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -13,19 +10,42 @@
   background-color: rgb(255, 255, 255); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.703); /* Black w/ opacity */
 }
-.pagination{
-  background-color: aqua;
+.pagination {
+  height: 80px;
+  display: flex;
+  justify-content: center;
 }
-.active{
-  color: crimson;
+.active {
+  color:rgb(255, 255, 255);
+}
+a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: #0d6efd;
+}
+ul {
   padding: 20px;
+  align-items: center;
+  gap: 20px;
 }
-ul{
-  padding: 20px;
+
+li {
+  list-style-type: none;
+  cursor: pointer;
 }
 
+.next a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-size: 20px;
+  padding: 5px 10px;
+}
 
-
-.previous{
-  background-color: crimson;
+.previous a {
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  padding: 5px 10px;
 }
