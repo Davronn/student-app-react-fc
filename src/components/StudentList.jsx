@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useReducer, useState } from "react";
 import { StudentContext } from "./UserContext";
 import axios from "axios";
-import "./StudentList.css";
+import "./Pagination.css";
 import ReactPaginate from "react-paginate";
 import UniversalButton from "./StudentListStyled";
 import Edit from "./EditStyled";
