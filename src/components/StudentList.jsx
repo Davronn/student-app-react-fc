@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useReducer, useState } from "react";
 import { StudentContext } from "./UserContext";
 import axios from "axios";
 import "./StudentList.css";
+import ReactPaginate from "react-paginate";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -32,6 +33,10 @@ function StudentList() {
   const [editedFirstName, setEditedFirstName] = useState("");
   const [editedLastName, setEditedLastName] = useState("");
   const [editedGroup, setEditedGroup] = useState("");
+
+
+  const [currentPage, setCurrentPage] = useState(0);
+  const [itemsPerPage] = useState(5);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -99,10 +104,19 @@ function StudentList() {
     }
   };
 
-  const filteredData = state.data.filter((student) => {
-    const fullName = `${student.firstName} ${student.lastName} ${student.group}`;
-    return fullName.toLowerCase().includes(searchQuery.toLowerCase());
-  });
+  const pageCount = Math.ceil(state.data.length / itemsPerPage);
+  const offset = currentPage * itemsPerPage;
+
+  const filteredData = state.data
+    .filter((student) => {
+      const fullName = `${student.firstName} ${student.lastName} ${student.group}`;
+      return fullName.toLowerCase().includes(searchQuery.toLowerCase());
+    })
+    .slice(offset, offset + itemsPerPage);  
+
+  const handlePageClick = ({ selected }) => {
+    setCurrentPage(selected);
+  };
 
   return (
     <div className="container">
@@ -130,7 +144,7 @@ function StudentList() {
         <tbody>
           {filteredData.map((student, i) => (
             <tr key={student.id}>
-              <th scope="row">{i + 1}</th>
+              <th scope="row">{offset + i + 1}</th>
               <td>{student.firstName}</td>
               <td>{student.lastName}</td>
               <td>{student.group}</td>
@@ -153,7 +167,20 @@ function StudentList() {
         </tbody>
       </table>
 
-      {/* Bootstrap Modal for Edit */}
+      <ReactPaginate
+        previousLabel={"Previous"}
+        nextLabel={"Next"}
+        breakLabel={"..."}
+        breakClassName={"break-me"}
+        pageCount={pageCount}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={5}
+        onPageChange={handlePageClick}
+        containerClassName={"pagination"}
+        activeClassName={"active"}
+      />
+
+      
       <div id="modal" className="modall" tabIndex="-1" role="dialog">
         <div className="modal-dialog container w-50 my-5" role="document">
           <div className="modal-content">
