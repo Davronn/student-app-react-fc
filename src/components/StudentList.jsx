@@ -5,6 +5,9 @@ import "./Pagination.css";
 import ReactPaginate from "react-paginate";
 import UniversalButton from "./StudentListStyled";
 import Edit from "./EditStyled";
+import Add from "./AddStyled";
+import StudentsAdd from "./Studentadd";
+import Profile from "./Profile";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -35,7 +38,6 @@ function StudentList() {
   const [editedFirstName, setEditedFirstName] = useState("");
   const [editedLastName, setEditedLastName] = useState("");
   const [editedGroup, setEditedGroup] = useState("");
-
 
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage] = useState(6);
@@ -71,9 +73,9 @@ function StudentList() {
     open.style.display = "block";
   };
 
-  const close = ()=> {
+  const close = () => {
     open.style.display = "none";
-  }
+  };
 
   const handleEdit = async () => {
     try {
@@ -100,8 +102,7 @@ function StudentList() {
       setEditStudent(null);
     } catch (error) {
       console.error("Error editing student:", error.message);
-    }
-    finally{
+    } finally {
       close();
     }
   };
@@ -114,7 +115,7 @@ function StudentList() {
       const fullName = `${student.firstName} ${student.lastName} ${student.group}`;
       return fullName.toLowerCase().includes(searchQuery.toLowerCase());
     })
-    .slice(offset, offset + itemsPerPage);  
+    .slice(offset, offset + itemsPerPage);
 
   const handlePageClick = ({ selected }) => {
     setCurrentPage(selected);
@@ -122,7 +123,12 @@ function StudentList() {
 
   return (
     <div className="container">
-      <h2 className="my-3">Students app</h2>
+      <div className="d-flex justify-content-between align-items-center">
+        <h2 className="my-3">Students app</h2>
+        <div className="">
+          <Profile />
+        </div>
+      </div>
       <div className="input-group mb-3">
         <input
           type="text"
@@ -157,8 +163,8 @@ function StudentList() {
                 >
                   Edit
                 </UniversalButton>
-                <UniversalButton 
-                  variant="delete"  
+                <UniversalButton
+                  variant="delete"
                   onClick={() => handleDelete(student.id)}
                 >
                   Delete
@@ -177,12 +183,14 @@ function StudentList() {
         pageCount={pageCount}
         marginPagesDisplayed={2}
         pageRangeDisplayed={5}
-        onPageChange={handlePageClick}  
+        onPageChange={handlePageClick}
         containerClassName={"pagination"}
         activeClassName={"active"}
       />
 
-      
+      <div className="container">
+        <StudentsAdd />
+      </div>
       <div id="modal" className="modall" tabIndex="-1" role="dialog">
         <div className="modal-dialog container w-50 my-5" role="document">
           <div className="modal-content">
@@ -201,7 +209,9 @@ function StudentList() {
             <div className="modal-body">
               <form>
                 <div className="form-group">
-                  <h5 className="text-white" htmlFor="editedFirstName">First Name</h5>
+                  <h5 className="text-white" htmlFor="editedFirstName">
+                    First Name
+                  </h5>
                   <input
                     type="text"
                     className="form-control w-50"
@@ -211,7 +221,9 @@ function StudentList() {
                   />
                 </div>
                 <div className="form-group">
-                  <h5 className="text-white" htmlFor="editedLastName">Last Name</h5>
+                  <h5 className="text-white" htmlFor="editedLastName">
+                    Last Name
+                  </h5>
                   <input
                     type="text"
                     className="form-control w-50"
@@ -221,7 +233,9 @@ function StudentList() {
                   />
                 </div>
                 <div className="form-group">
-                  <h5 className="text-white" htmlFor="editedGroup">Group</h5>
+                  <h5 className="text-white" htmlFor="editedGroup">
+                    Group
+                  </h5>
                   <input
                     type="text"
                     className="form-control w-25"
@@ -242,10 +256,7 @@ function StudentList() {
               >
                 Close
               </Edit>
-              <Edit
-                type="button"
-                onClick={handleEdit}
-              >
+              <Edit type="button" onClick={handleEdit}>
                 Save changes
               </Edit>
             </div>
