@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Modal from "react-modal";
-import UniversalButton   from "./StudentListStyled";
+import UniversalButton from "./StudentListStyled";
 import Add from "./AddStyled";
 
 const initialState = {
@@ -23,17 +23,23 @@ function StudentsAdd() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await axios.post("http://localhost:3000/students", {
-        firstName: state.firstName,
-        lastName: state.lastName,
-        group: state.group,
-      });
-      setState({ ...initialState, isDataUpdated: true });
-      closeModal();
-      fetchData();
-    } catch (error) {
-      setState({ ...state, error: error.message });
+    if (
+      state.firstName.length.trim() > 0 &&
+      state.lastName.length.trim() > 0 &&
+      state.group.length.trim() > 0
+    ) {
+      try {
+        await axios.post("http://localhost:3000/students", {
+          firstName: state.firstName,
+          lastName: state.lastName,
+          group: state.group,
+        });
+        setState({ ...initialState, isDataUpdated: true });
+        closeModal();
+        fetchData();
+      } catch (error) {
+        setState({ ...state, error: error.message });
+      }
     }
   };
 
@@ -115,10 +121,7 @@ function StudentsAdd() {
               onChange={handleChange}
             />
           </div>
-          <Add
-            type="submit"
-            onClick={() => refreshPage()}
-          >
+          <Add type="submit" onClick={() => refreshPage()}>
             Submit
           </Add>
         </form>
