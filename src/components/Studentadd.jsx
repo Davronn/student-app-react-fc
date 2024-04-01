@@ -24,9 +24,9 @@ function StudentsAdd() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (
-      state.firstName.length.trim() > 0 &&
-      state.lastName.length.trim() > 0 &&
-      state.group.length.trim() > 0
+      state.firstName.length > 0 &&
+      state.lastName.length > 0 &&
+      state.group > 0
     ) {
       try {
         await axios.post("http://localhost:3000/students", {
