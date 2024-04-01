@@ -1,11 +1,16 @@
 import React from "react";
 import Login from "../pages/Login";
 import ToLogin from "./ToLogin";
+import ProfileInfo from "./ProfileLink";
 
 function Profile() {
   const username = localStorage.getItem("userName");
   console.log(username);
-  return <h5>{username ? username : <ToLogin/>}</h5>;
-}
+  return (
+    <div>
+       {username ? <ProfileInfo/> : <ToLogin/>}
+    </div>
+  )
+} 
 
 export default Profile;

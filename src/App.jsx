@@ -3,6 +3,7 @@ import { StudentProvider } from "./components/UserContext";
 import ExampleComponent from "./components/StudentList";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
+import ProfileInfo from "./pages/ProfileInfo";
 
 function App() {
   const [name, setName] = useState("John");
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<ExampleComponent />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<ProfileInfo />} />
         </Routes>
       </Router>
     </StudentProvider>

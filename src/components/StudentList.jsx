@@ -7,7 +7,8 @@ import UniversalButton from "./StudentListStyled";
 import Edit from "./EditStyled";
 import Add from "./AddStyled";
 import StudentsAdd from "./Studentadd";
-import Profile from "./Profile";
+import Profile from "./ProfileLinkTo";
+
 
 const reducer = (state, action) => {
   switch (action.type) {
