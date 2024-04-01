@@ -26,7 +26,6 @@ const reducer = (state, action) => {
 };
 
 function StudentList() {
-  const { name, userName } = useContext(StudentContext);
 
   const [state, dispatch] = useReducer(reducer, {
     data: [],

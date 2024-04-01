@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { StudentProvider } from "./components/UserContext";
 import ExampleComponent from "./components/StudentList";
-import DataContext from "./components/Studentadd";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 
