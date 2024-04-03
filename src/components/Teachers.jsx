@@ -31,7 +31,6 @@ function Teachers() {
   );
 
   const openEditModal = (teacher) => {
-    // Implement your edit logic here, e.g., show a modal with teacher details
     console.log("Editing teacher:", teacher);
   };
 
