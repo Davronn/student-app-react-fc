@@ -3,3 +3,9 @@
   border: none !important;
   color: black !important;
 }
+.Tologin p {
+  background-color: #0d6efd;
+  padding: 5px 10px;
+  color: #fff;
+  border-radius:5px ;
+}

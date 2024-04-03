@@ -8,7 +8,7 @@ function Profile() {
   console.log(username);
   return (
     <div>
-       {username ? <ProfileInfo/> : <ToLogin/>}
+       {username ? "" : <ToLogin/>}
     </div>
   )
 } 

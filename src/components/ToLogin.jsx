@@ -6,7 +6,7 @@ function ToLogin() {
   return (
     <div className="Tologin">
       <Link to="/login">
-        <h5>To Login</h5>
+        <p>To Login</p>
       </Link>
     </div>
   );

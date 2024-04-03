@@ -25,10 +25,10 @@
       "group": "11"
     },
     {
-      "id": "9874",
       "firstName": "brown ",
       "lastName": "doe",
-      "group": "111"
+      "group": "15",
+      "id": "9874"
     },
     {
       "firstName": "evans",
@@ -43,10 +43,48 @@
       "id": "5ebd"
     },
     {
-      "id": "3586",
-      "firstName": "snjcd",
-      "lastName": "scdjn's",
-      "group": "12"
+      "firstName": "sin",
+      "lastName": "doe",
+      "group": "12",
+      "id": "3586"
+    },
+    {
+      "firstName": "jhon",
+      "lastName": "doe",
+      "group": "13",
+      "id": "426f"
+    }
+  ],
+  "teachers": [
+    {
+      "firstName": "John",
+      "lastName": "Doe",
+      "group": "26",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "firstName": "Tom",
+      "lastName": "Smith",
+      "group": 26
+    },
+    {
+      "firstName": "Brad",
+      "lastName": "Maccalistor ",
+      "group": 27,
+      "id": "3"
+    },
+    {
+      "id": "fbc8",
+      "firstName": "tom ",
+      "lastName": "doe",
+      "group": "11"
+    },
+    {
+      "firstName": "brown ",
+      "lastName": "doe",
+      "group": "15",
+      "id": "9874"
     }
   ]
 }

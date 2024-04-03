@@ -123,7 +123,7 @@ function StudentList() {
 
   return (
     <div className="container">
-      <div className="d-flex justify-content-between align-items-center">
+      <div className="d-flex justify-content-between align-items-center p-2" >
         <h2 className="my-3">Students app</h2>
         <div className="">
           <Profile />

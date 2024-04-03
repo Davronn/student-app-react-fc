@@ -4,6 +4,7 @@ import ExampleComponent from "./components/StudentList";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import ProfileInfo from "./pages/ProfileInfo";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   const [name, setName] = useState("John");
@@ -12,7 +13,7 @@ function App() {
     <StudentProvider value={{ name, userName }}>
       <Router>
         <Routes>
-          <Route path="/" element={<ExampleComponent />} />
+          <Route path="/" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<ProfileInfo />} />
         </Routes>
