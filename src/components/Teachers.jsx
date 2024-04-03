@@ -87,8 +87,8 @@ function Teachers() {
         teacher.id === editStudent.id ? { ...teacher, firstName: editedFirstName, lastName: editedLastName, group: editedGroup } : teacher
       ));
       
-      setEditStudent(null); // Clear editStudent state
-      close(); // Close modal after editing
+      setEditStudent(null);
+      close(); 
     } catch (error) {
       console.error("Error editing teacher:", error.message);
     }
