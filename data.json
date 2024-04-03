@@ -1,12 +1,6 @@
 {
   "students": [
     {
-      "firstName": "Jhon",
-      "lastName": "Doe",
-      "group": "26",
-      "id": "1"
-    },
-    {
       "id": "2",
       "firstName": "Tom",
       "lastName": "Smith",
@@ -23,12 +17,6 @@
       "firstName": "tom ",
       "lastName": "doe",
       "group": "11"
-    },
-    {
-      "firstName": "brown ",
-      "lastName": "doe",
-      "group": "15",
-      "id": "9874"
     },
     {
       "firstName": "evans",
