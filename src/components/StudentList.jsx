@@ -40,7 +40,7 @@ function StudentList() {
   const [editedGroup, setEditedGroup] = useState("");
 
   const [currentPage, setCurrentPage] = useState(0);
-  const [itemsPerPage] = useState(6);
+  const [itemsPerPage] = useState(5);
 
   useEffect(() => {
     const fetchData = async () => {
