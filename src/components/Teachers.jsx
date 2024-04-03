@@ -5,19 +5,45 @@ import UniversalButton from "./StudentListStyled";
 
 function Teachers() {
   const [teachers, setTeachers] = useState([]);
-  console.log(teachers);
+  const [searchTerm, setSearchTerm] = useState("");
+
   useEffect(() => {
-    const fetchTeahcer = async () => {
-      try {
-        const response = await axios.get("http://localhost:3000/teachers");
-        setTeachers(response.data);
-      } catch (error) {
-        console.error("Error fetching data:", error.message);
-      }
-    };
-    fetchTeahcer();
+    fetchTeachers();
   }, []);
 
+  const fetchTeachers = async () => {
+    try {
+      const response = await axios.get("http://localhost:3000/teachers");
+      setTeachers(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error.message);
+    }
+  };
+
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredTeachers = teachers.filter((teacher) =>
+    `${teacher.firstName} ${teacher.lastName} ${teacher.group}`
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase())
+  );
+
+  const openEditModal = (teacher) => {
+    // Implement your edit logic here, e.g., show a modal with teacher details
+    console.log("Editing teacher:", teacher);
+  };
+
+  const handleDelete = async (teacherId) => {
+    try {
+      await axios.delete(`http://localhost:3000/teachers/${teacherId}`);
+      setTeachers(teachers.filter((teacher) => teacher.id !== teacherId));
+      console.log("Teacher deleted successfully");
+    } catch (error) {
+      console.error("Error deleting teacher:", error.message);
+    }
+  };
 
   return (
     <div className="container">
@@ -31,7 +57,9 @@ function Teachers() {
         <input
           type="text"
           className="form-control"
-          placeholder="Search by First Name , Last Name and Group"
+          placeholder="Search by First Name, Last Name, and Group"
+          value={searchTerm}
+          onChange={handleSearch}
         />
       </div>
       <table className="table table-hover">
@@ -45,22 +73,22 @@ function Teachers() {
           </tr>
         </thead>
         <tbody>
-          {teachers.map((student, i) => (
-            <tr key={student.id}>
-              <th scope="row">{i + 1}</th>
-              <td>{student.firstName}</td>
-              <td>{student.lastName}</td>
-              <td>{student.group}</td>
+          {filteredTeachers.map((teacher, index) => (
+            <tr key={teacher.id}>
+              <th scope="row">{index + 1}</th>
+              <td>{teacher.firstName}</td>
+              <td>{teacher.lastName}</td>
+              <td>{teacher.group}</td>
               <td>
                 <UniversalButton
                   className="mx-1"
-                  onClick={() => openEditModal(student)}
+                  onClick={() => openEditModal(teacher)}
                 >
                   Edit
                 </UniversalButton>
                 <UniversalButton
                   variant="delete"
-                  onClick={() => handleDelete(student.id)}
+                  onClick={() => handleDelete(teacher.id)}
                 >
                   Delete
                 </UniversalButton>
